@@ -1,23 +1,26 @@
-// Import stylesheets
-import './style.css';
-
-// Write Javascript code!
-const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>My App</h1>`;
-
 //Functional programming example
-function getNumber(INPUTid){
+function getNumber(inputID){
     const value = document.getElementById(inputID).value;
-    return pasrInt(value); 
+    return parseInt(value); 
 }
-function getFunctionFactorial(n){
+function getFunctionalFactorial(n) {
     if (n == 1) return 1;
-    else return n = getFunctionFactorial(n - 1);
+    else return n * getFunctionalFactorial(n - 1);
 }
 function displaySum(value){
     document.getElementById('func-sum-result').textContent = value;
 }
-document.getElementById('function-btn').onclick = function handler() {
-    const res = getFunctionFactorial(getNumber('input-n'));
+document.getElementById('func-btn').onclick = function handler() {
+    const res = getFunctionalFactorial(getNumber('input-n'));
     displaySum(res);
+};
+//Procedural programming example
+document.getElementById('oo-btn').onclick = function handler() {
+    const value = document.getElementById('input-n').value;
+    let n = parseInt(value);
+    let res = 1;
+    for (let i = 1; i <= n; i++){
+        res = res * i;
+    }
+    document.getElementById('oo-sum-result').textContent = res;
 };
